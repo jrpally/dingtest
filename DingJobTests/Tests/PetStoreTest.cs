@@ -22,7 +22,7 @@ namespace DingJobTests.PetTests
             instance = new PetApi();
         }
 
-        [Test]
+        [Test, Order(1)]
         public void PetCanBeAddedWithCategoryTest()
         {
             // Arrange
@@ -45,5 +45,54 @@ namespace DingJobTests.PetTests
             // Assert
             Assert.AreEqual(petToAdd, result);
         }
+
+        [Test, Order(2)]
+        public void PetCanBeReadTest()
+        {
+            // Arrange
+            List<Pet> pets = this.instance.FindPetsByTags(new List<string>() { "Domestic" });
+            Pet pet = pets.Find(currentPet => currentPet.Name.Equals("Kaiser"));
+
+            // Assert
+            Assert.NotNull(pet);
+        }
+
+        [Test, Order(3)]
+        public void PetCanBeUpdatedTest()
+        {
+            // Arrange 
+            List<Pet> pets = this.instance.FindPetsByTags(new List<string>() { "Domestic" });
+            Pet pet = pets.Find(currentPet => currentPet.Name.Equals("Kaiser"));
+
+            pet.Name = "Kaiser The Great";
+
+            this.instance.UpdatePet(pet);
+
+            pets = this.instance.FindPetsByTags(new List<string>() { "Domestic" });
+            pet = pets.Find(currentPet => currentPet.Name.Equals("Kaiser The Great"));
+
+            // Assert
+            Assert.AreEqual(pet.Name, "Kaiser The Great");
+            Assert.AreEqual(pet.Id, 10);
+            Assert.AreEqual(pet.Status, StatusEnum.Pending);
+        }
+
+        [Test, Order(4)]
+        public void PetCanBeDeletedTest()
+        {
+            // Arrange 
+            List<Pet> pets = this.instance.FindPetsByTags(new List<string>() { "Domestic" });
+            Pet pet = pets.Find(currentPet => currentPet.Name.Equals("Kaiser The Great"));
+
+            Assert.NotNull(pets);
+
+            // Act
+            this.instance.DeletePet(pet.Id, "special-key");
+            pets = this.instance.FindPetsByTags(new List<string>() { "Domestic" });
+
+            // Assert
+            Assert.AreEqual(pets.Count, 0);
+        }
+
     }
 }
