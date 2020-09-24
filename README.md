@@ -4,8 +4,6 @@ DingJobtest are the set of solutions for the problems asked by Ding.
 
 ## Installation
 
-No installation Required / VS 2019 required.
-
 Clone the repository: 
 
 ```bash
