@@ -6236,11 +6236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\DingJobTests\\DingJobTests\\DingJobTests.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\repo3\\dingtest\\DingJobTests\\DingJobTests.csproj",
       "projectName": "DingJobTests",
-      "projectPath": "C:\\Users\\HP\\source\\repos\\DingJobTests\\DingJobTests\\DingJobTests.csproj",
+      "projectPath": "C:\\Users\\HP\\source\\repos\\repo3\\dingtest\\DingJobTests\\DingJobTests.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\source\\repos\\DingJobTests\\DingJobTests\\obj\\",
+      "outputPath": "C:\\Users\\HP\\source\\repos\\repo3\\dingtest\\DingJobTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6259,8 +6259,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\HP\\source\\repos\\DingJobTests\\IO.Swagger.Pet\\PetSwaggerLib.csproj": {
-              "projectPath": "C:\\Users\\HP\\source\\repos\\DingJobTests\\IO.Swagger.Pet\\PetSwaggerLib.csproj"
+            "C:\\Users\\HP\\source\\repos\\repo3\\dingtest\\IO.Swagger.Pet\\PetSwaggerLib.csproj": {
+              "projectPath": "C:\\Users\\HP\\source\\repos\\repo3\\dingtest\\IO.Swagger.Pet\\PetSwaggerLib.csproj"
             }
           }
         }
