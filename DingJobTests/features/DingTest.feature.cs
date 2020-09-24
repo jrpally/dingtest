@@ -129,6 +129,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.Then(string.Format("Then the {0} is displayed", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 12
+ testRunner.Then("Close the Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -151,7 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("WrongPasswordError", wrongPasswordError);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test Paypal sandbox with wrong password", null, tagsOfScenario, argumentsOfScenario);
-#line 18
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -171,23 +174,26 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 19
+#line 20
  testRunner.Given("The a browser like \'Chrome\' Go to the PayPal Signin Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 20
+#line 21
  testRunner.And(string.Format("Write the username as {0}", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 21
+#line 22
  testRunner.When("I click next button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 23
  testRunner.And(string.Format("Write the password as {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 23
+#line 24
  testRunner.When("I click login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 25
  testRunner.Then(string.Format("The Bad Password Error {0} is displayed", wrongPasswordError), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 26
+ testRunner.Then("Close the Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -211,7 +217,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Username", username);
             argumentsOfScenario.Add("WrongPhoneNumber", wrongPhoneNumber);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test Paypal sandbox with wrong phone number", null, tagsOfScenario, argumentsOfScenario);
-#line 31
+#line 33
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -231,17 +237,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
+#line 34
  testRunner.Given("The a browser like \'Chrome\' Go to the PayPal Signin Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 33
+#line 35
  testRunner.And(string.Format("Write the username as {0}", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 34
+#line 36
  testRunner.When("I click next button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 35
+#line 37
  testRunner.Then(string.Format("The Bad Number Error {0} is displayed", wrongPhoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 38
+ testRunner.Then("Close the Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

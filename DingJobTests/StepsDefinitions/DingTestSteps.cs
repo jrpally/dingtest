@@ -71,6 +71,12 @@ namespace DingJobTests.StepsDefinitions
             Assert.AreEqual(numberNotConfirmedMsg.Text, message);
         }
 
+        [Then(@"Close the Browser")]
+        public void ThenCloseTheBrowser()
+        {
+            this.driver.Close();
+        }
+
 
     }
 }

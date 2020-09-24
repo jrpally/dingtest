@@ -9,6 +9,7 @@ Scenario: Test Paypal sandbox with empty password
 	And Write the password as <Password>
 	When I click login
 	Then Then the <ErrorMessage> is displayed
+	Then Close the Browser
 
 	Examples:
 		| Username       | Password | ErrorMessage         |
@@ -22,6 +23,7 @@ Scenario: Test Paypal sandbox with wrong password
 	And Write the password as <Password>
 	When I click login
 	Then The Bad Password Error <WrongPasswordError> is displayed
+	Then Close the Browser
 
 	Examples:
 		| Username        | Password    | WrongPasswordError                                        |
@@ -33,6 +35,7 @@ Scenario: Test Paypal sandbox with wrong phone number
 	And Write the username as <Username>
 	When I click next button
 	Then The Bad Number Error <WrongPhoneNumber> is displayed
+	Then Close the Browser
 
 	Examples:
 		| Username | WrongPhoneNumber                                                                     |
