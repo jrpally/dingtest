@@ -1,4 +1,5 @@
-﻿using DingJobTests.StepsDefinitions;
+﻿using DingJobTests.Core.Lib;
+using DingJobTests.StepsDefinitions;
 using OpenQA.Selenium;
 
 namespace DingJobTests.Core.Pages

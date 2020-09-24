@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using IO.Swagger.Api;
 using IO.Swagger.Model;
 using log4net;
@@ -26,7 +24,7 @@ namespace DingJobTests.Tests
         {
             // Arrange
             Order order = new Order(id: 10, petId: 20, quantity: 200, DateTime.Today, StatusEnum.Approved, complete: true);
-            
+
             // Act
             Order orderResult = this.instance.PlaceOrder(order);
             log.Info($"Initial Order: {order}");

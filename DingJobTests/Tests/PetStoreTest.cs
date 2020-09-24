@@ -1,13 +1,11 @@
-﻿using IO.Swagger.Api;
+﻿using System.Collections.Generic;
+using IO.Swagger.Api;
 using IO.Swagger.Model;
 using log4net;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using static IO.Swagger.Model.Pet;
 
-namespace DingJobTests.PetTests
+namespace DingJobTests.Tests
 {
     [TestFixture]
     public class PetStoreTest

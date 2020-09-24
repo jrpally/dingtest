@@ -11,11 +11,12 @@ namespace DingJobTests.Core.Pages
 
         protected BasePage(IWebDriver driver)
         {
-            this.driver = driver;
+            this.driver = driver ?? throw new ArgumentNullException(nameof(driver));
         }
 
         protected void Navigate(string url)
         {
+            if (url == null) throw new ArgumentNullException(nameof(url));
             this.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Timeout);
             this.driver.Navigate().GoToUrl(url);
             WebDriverWait waitForDocumentReady = new WebDriverWait(driver, TimeSpan.FromSeconds(Timeout));
@@ -24,6 +25,7 @@ namespace DingJobTests.Core.Pages
 
         protected IWebElement FindElement(By by)
         {
+            if (@by == null) throw new ArgumentNullException(nameof(@by));
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Timeout));
             IWebElement element = wait
                 .Until(

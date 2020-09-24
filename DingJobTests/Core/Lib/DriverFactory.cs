@@ -1,8 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
 
-namespace DingJobTests.StepsDefinitions
+namespace DingJobTests.Core.Lib
 {
     public class DriverFactory
     {
@@ -13,6 +13,7 @@ namespace DingJobTests.StepsDefinitions
         /// <returns>Webdriver for Browser</returns>
         public static IWebDriver CreateBrowser(string browser)
         {
+            if (browser == null) throw new ArgumentNullException(nameof(browser));
             BrowserType browserType = (BrowserType)Enum.Parse(typeof(BrowserType),
                 browser, true);
 

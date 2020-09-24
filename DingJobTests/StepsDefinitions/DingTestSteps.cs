@@ -46,10 +46,10 @@ namespace DingJobTests.StepsDefinitions
 
         [Then(@"Then the (.*) is displayed")]
         public void ThenThenTheIsDisplayed(string message)
-        {            
+        {
             string password = this.payPalLoginPage.Password;
             Assert.IsTrue(string.IsNullOrEmpty(password));
-            
+
             WebElement passwordError = this.payPalLoginPage.ErrorMessagePassword;
             Assert.AreEqual(passwordError.Text, message);
         }

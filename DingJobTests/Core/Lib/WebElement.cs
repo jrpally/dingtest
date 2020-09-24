@@ -1,6 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
-namespace DingJobTests.StepsDefinitions
+namespace DingJobTests.Core.Lib
 {
     internal class WebElement
     {
@@ -8,7 +9,7 @@ namespace DingJobTests.StepsDefinitions
 
         public WebElement(IWebElement webElement)
         {
-            this.webElement = webElement;
+            this.webElement = webElement ?? throw new ArgumentNullException(nameof(webElement));
         }
 
         public bool IsVisible => this.webElement.Displayed;
