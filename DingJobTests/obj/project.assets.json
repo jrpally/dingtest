@@ -6207,8 +6207,8 @@
     },
     "PetSwaggerLib/1.0.0": {
       "type": "project",
-      "path": "../../../../Desktop/csharp-client/src/IO.Swagger/PetSwaggerLib.csproj",
-      "msbuildProject": "../../../../Desktop/csharp-client/src/IO.Swagger/PetSwaggerLib.csproj"
+      "path": "../IO.Swagger.Pet/PetSwaggerLib.csproj",
+      "msbuildProject": "../IO.Swagger.Pet/PetSwaggerLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6259,8 +6259,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\HP\\Desktop\\csharp-client\\src\\IO.Swagger\\PetSwaggerLib.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\csharp-client\\src\\IO.Swagger\\PetSwaggerLib.csproj"
+            "C:\\Users\\HP\\source\\repos\\DingJobTests\\IO.Swagger.Pet\\PetSwaggerLib.csproj": {
+              "projectPath": "C:\\Users\\HP\\source\\repos\\DingJobTests\\IO.Swagger.Pet\\PetSwaggerLib.csproj"
             }
           }
         }

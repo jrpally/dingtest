@@ -59,7 +59,7 @@ namespace DingJobTests.Tests
         public void PetCanBeUpdatedTest()
         {
             // Arrange 
-            List<Pet> pets = this.instance.FindPetsByTags(new List<string>() { "Domestic" });
+            List<Pet> pets = this.instance.FindPetsByTags(new List<string>() {"Domestic"});
             Pet pet = pets.Find(currentPet => currentPet.Name.Equals("Kaiser"));
 
             pet.Name = "Kaiser The Great";

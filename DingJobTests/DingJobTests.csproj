@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\csharp-client\src\IO.Swagger\PetSwaggerLib.csproj" />
+    <ProjectReference Include="..\IO.Swagger.Pet\PetSwaggerLib.csproj" />
   </ItemGroup>
 
 </Project>

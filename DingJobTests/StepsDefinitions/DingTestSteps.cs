@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
+using DingJobTests.Core.Lib;
 using DingJobTests.Core.Pages;
 using TechTalk.SpecFlow;
 
