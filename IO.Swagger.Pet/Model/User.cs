@@ -18,7 +18,7 @@ namespace IO.Swagger.Model
     /// User
     /// </summary>
     [DataContract]
-    public partial class User :  IEquatable<User>, IValidatableObject
+    public partial class User : IEquatable<User>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
@@ -31,7 +31,9 @@ namespace IO.Swagger.Model
         /// <param name="password">password.</param>
         /// <param name="phone">phone.</param>
         /// <param name="userStatus">User Status.</param>
-        public User(long? id = default(long?), string username = default(string), string firstName = default(string), string lastName = default(string), string email = default(string), string password = default(string), string phone = default(string), int? userStatus = default(int?))
+        public User(long? id = default(long?), string username = default(string), string firstName = default(string),
+            string lastName = default(string), string email = default(string), string password = default(string),
+            string phone = default(string), int? userStatus = default(int?))
         {
             this.Id = id;
             this.Username = username;
@@ -42,54 +44,54 @@ namespace IO.Swagger.Model
             this.Phone = phone;
             this.UserStatus = userStatus;
         }
-        
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
-        [DataMember(Name="username", EmitDefaultValue=false)]
+        [DataMember(Name = "username", EmitDefaultValue = false)]
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
-        [DataMember(Name="firstName", EmitDefaultValue=false)]
+        [DataMember(Name = "firstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
-        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        [DataMember(Name = "lastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
-        [DataMember(Name="password", EmitDefaultValue=false)]
+        [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
         /// Gets or Sets Phone
         /// </summary>
-        [DataMember(Name="phone", EmitDefaultValue=false)]
+        [DataMember(Name = "phone", EmitDefaultValue = false)]
         public string Phone { get; set; }
 
         /// <summary>
         /// User Status
         /// </summary>
         /// <value>User Status</value>
-        [DataMember(Name="userStatus", EmitDefaultValue=false)]
+        [DataMember(Name = "userStatus", EmitDefaultValue = false)]
         public int? UserStatus { get; set; }
 
         /// <summary>
@@ -111,7 +113,7 @@ namespace IO.Swagger.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -141,46 +143,46 @@ namespace IO.Swagger.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
+                     this.Id.Equals(input.Id))
+                ) &&
                 (
                     this.Username == input.Username ||
                     (this.Username != null &&
-                    this.Username.Equals(input.Username))
-                ) && 
+                     this.Username.Equals(input.Username))
+                ) &&
                 (
                     this.FirstName == input.FirstName ||
                     (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
+                     this.FirstName.Equals(input.FirstName))
+                ) &&
                 (
                     this.LastName == input.LastName ||
                     (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
-                ) && 
+                     this.LastName.Equals(input.LastName))
+                ) &&
                 (
                     this.Email == input.Email ||
                     (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
+                     this.Email.Equals(input.Email))
+                ) &&
                 (
                     this.Password == input.Password ||
                     (this.Password != null &&
-                    this.Password.Equals(input.Password))
-                ) && 
+                     this.Password.Equals(input.Password))
+                ) &&
                 (
                     this.Phone == input.Phone ||
                     (this.Phone != null &&
-                    this.Phone.Equals(input.Phone))
-                ) && 
+                     this.Phone.Equals(input.Phone))
+                ) &&
                 (
                     this.UserStatus == input.UserStatus ||
                     (this.UserStatus != null &&
-                    this.UserStatus.Equals(input.UserStatus))
+                     this.UserStatus.Equals(input.UserStatus))
                 );
         }
 
@@ -218,10 +220,10 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext)
         {
             yield break;
         }
     }
-
 }

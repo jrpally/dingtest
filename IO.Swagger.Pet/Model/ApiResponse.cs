@@ -1,4 +1,3 @@
-
 using System;
 using System.Linq;
 using System.IO;
@@ -19,7 +18,7 @@ namespace IO.Swagger.Model
     /// ApiResponse
     /// </summary>
     [DataContract]
-    public partial class ApiResponse :  IEquatable<ApiResponse>, IValidatableObject
+    public partial class ApiResponse : IEquatable<ApiResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiResponse" /> class.
@@ -33,23 +32,23 @@ namespace IO.Swagger.Model
             this.Type = type;
             this.Message = message;
         }
-        
+
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public int? Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ namespace IO.Swagger.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -96,21 +95,21 @@ namespace IO.Swagger.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
                     this.Code == input.Code ||
                     (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
+                     this.Code.Equals(input.Code))
+                ) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
+                     this.Type.Equals(input.Type))
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                     this.Message.Equals(input.Message))
                 );
         }
 
@@ -138,10 +137,10 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext)
         {
             yield break;
         }
     }
-
 }

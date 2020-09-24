@@ -18,7 +18,7 @@ namespace IO.Swagger.Model
     /// Order
     /// </summary>
     [DataContract]
-    public partial class Order :  IEquatable<Order>, IValidatableObject
+    public partial class Order : IEquatable<Order>, IValidatableObject
     {
         /// <summary>
         /// Order Status
@@ -27,32 +27,29 @@ namespace IO.Swagger.Model
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
-            
             /// <summary>
             /// Enum Placed for value: placed
             /// </summary>
-            [EnumMember(Value = "placed")]
-            Placed = 1,
-            
+            [EnumMember(Value = "placed")] Placed = 1,
+
             /// <summary>
             /// Enum Approved for value: approved
             /// </summary>
-            [EnumMember(Value = "approved")]
-            Approved = 2,
-            
+            [EnumMember(Value = "approved")] Approved = 2,
+
             /// <summary>
             /// Enum Delivered for value: delivered
             /// </summary>
-            [EnumMember(Value = "delivered")]
-            Delivered = 3
+            [EnumMember(Value = "delivered")] Delivered = 3
         }
 
         /// <summary>
         /// Order Status
         /// </summary>
         /// <value>Order Status</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
@@ -62,7 +59,9 @@ namespace IO.Swagger.Model
         /// <param name="shipDate">shipDate.</param>
         /// <param name="status">Order Status.</param>
         /// <param name="complete">complete.</param>
-        public Order(long? id = default(long?), long? petId = default(long?), int? quantity = default(int?), DateTime? shipDate = default(DateTime?), StatusEnum? status = default(StatusEnum?), bool? complete = default(bool?))
+        public Order(long? id = default(long?), long? petId = default(long?), int? quantity = default(int?),
+            DateTime? shipDate = default(DateTime?), StatusEnum? status = default(StatusEnum?),
+            bool? complete = default(bool?))
         {
             this.Id = id;
             this.PetId = petId;
@@ -71,36 +70,36 @@ namespace IO.Swagger.Model
             this.Status = status;
             this.Complete = complete;
         }
-        
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets PetId
         /// </summary>
-        [DataMember(Name="petId", EmitDefaultValue=false)]
+        [DataMember(Name = "petId", EmitDefaultValue = false)]
         public long? PetId { get; set; }
 
         /// <summary>
         /// Gets or Sets Quantity
         /// </summary>
-        [DataMember(Name="quantity", EmitDefaultValue=false)]
+        [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int? Quantity { get; set; }
 
         /// <summary>
         /// Gets or Sets ShipDate
         /// </summary>
-        [DataMember(Name="shipDate", EmitDefaultValue=false)]
+        [DataMember(Name = "shipDate", EmitDefaultValue = false)]
         public DateTime? ShipDate { get; set; }
 
 
         /// <summary>
         /// Gets or Sets Complete
         /// </summary>
-        [DataMember(Name="complete", EmitDefaultValue=false)]
+        [DataMember(Name = "complete", EmitDefaultValue = false)]
         public bool? Complete { get; set; }
 
         /// <summary>
@@ -120,7 +119,7 @@ namespace IO.Swagger.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -150,36 +149,36 @@ namespace IO.Swagger.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
+                     this.Id.Equals(input.Id))
+                ) &&
                 (
                     this.PetId == input.PetId ||
                     (this.PetId != null &&
-                    this.PetId.Equals(input.PetId))
-                ) && 
+                     this.PetId.Equals(input.PetId))
+                ) &&
                 (
                     this.Quantity == input.Quantity ||
                     (this.Quantity != null &&
-                    this.Quantity.Equals(input.Quantity))
-                ) && 
+                     this.Quantity.Equals(input.Quantity))
+                ) &&
                 (
                     this.ShipDate == input.ShipDate ||
                     (this.ShipDate != null &&
-                    this.ShipDate.Equals(input.ShipDate))
-                ) && 
+                     this.ShipDate.Equals(input.ShipDate))
+                ) &&
                 (
                     this.Status == input.Status ||
                     (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
+                     this.Status.Equals(input.Status))
+                ) &&
                 (
                     this.Complete == input.Complete ||
                     (this.Complete != null &&
-                    this.Complete.Equals(input.Complete))
+                     this.Complete.Equals(input.Complete))
                 );
         }
 
@@ -213,10 +212,10 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext)
         {
             yield break;
         }
     }
-
 }

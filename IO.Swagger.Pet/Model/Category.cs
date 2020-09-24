@@ -18,7 +18,7 @@ namespace IO.Swagger.Model
     /// Category
     /// </summary>
     [DataContract]
-    public partial class Category :  IEquatable<Category>, IValidatableObject
+    public partial class Category : IEquatable<Category>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Category" /> class.
@@ -30,17 +30,17 @@ namespace IO.Swagger.Model
             this.Id = id;
             this.Name = name;
         }
-        
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace IO.Swagger.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -86,16 +86,16 @@ namespace IO.Swagger.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
+                     this.Id.Equals(input.Id))
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                     this.Name.Equals(input.Name))
                 );
         }
 
@@ -121,10 +121,10 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext)
         {
             yield break;
         }
     }
-
 }

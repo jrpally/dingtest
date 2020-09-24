@@ -18,7 +18,7 @@ namespace IO.Swagger.Model
     /// Pet
     /// </summary>
     [DataContract]
-    public partial class Pet :  IEquatable<Pet>, IValidatableObject
+    public partial class Pet : IEquatable<Pet>, IValidatableObject
     {
         /// <summary>
         /// pet status in the store
@@ -27,37 +27,37 @@ namespace IO.Swagger.Model
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
-            
             /// <summary>
             /// Enum Available for value: available
             /// </summary>
-            [EnumMember(Value = "available")]
-            Available = 1,
-            
+            [EnumMember(Value = "available")] Available = 1,
+
             /// <summary>
             /// Enum Pending for value: pending
             /// </summary>
-            [EnumMember(Value = "pending")]
-            Pending = 2,
-            
+            [EnumMember(Value = "pending")] Pending = 2,
+
             /// <summary>
             /// Enum Sold for value: sold
             /// </summary>
-            [EnumMember(Value = "sold")]
-            Sold = 3
+            [EnumMember(Value = "sold")] Sold = 3
         }
 
         /// <summary>
         /// pet status in the store
         /// </summary>
         /// <value>pet status in the store</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Pet" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Pet() { }
+        protected Pet()
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Pet" /> class.
         /// </summary>
@@ -67,47 +67,52 @@ namespace IO.Swagger.Model
         /// <param name="photoUrls">photoUrls (required).</param>
         /// <param name="tags">tags.</param>
         /// <param name="status">pet status in the store.</param>
-        public Pet(long? id = default(long?), Category category = default(Category), string name = default(string), List<string> photoUrls = default(List<string>), List<Tag> tags = default(List<Tag>), StatusEnum? status = default(StatusEnum?))
+        public Pet(long? id = default(long?), Category category = default(Category), string name = default(string),
+            List<string> photoUrls = default(List<string>), List<Tag> tags = default(List<Tag>),
+            StatusEnum? status = default(StatusEnum?))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new InvalidDataException("name is a required property for Pet and cannot be null");
-            
+            this.Name = name ??
+                        throw new InvalidDataException("name is a required property for Pet and cannot be null");
+
             // to ensure "photoUrls" is required (not null)
-            this.PhotoUrls = photoUrls ?? throw new InvalidDataException("photoUrls is a required property for Pet and cannot be null");
+            this.PhotoUrls = photoUrls ??
+                             throw new InvalidDataException(
+                                 "photoUrls is a required property for Pet and cannot be null");
             this.Id = id;
             this.Category = category;
             this.Tags = tags;
             this.Status = status;
         }
-        
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
-        [DataMember(Name="category", EmitDefaultValue=false)]
+        [DataMember(Name = "category", EmitDefaultValue = false)]
         public Category Category { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets PhotoUrls
         /// </summary>
-        [DataMember(Name="photoUrls", EmitDefaultValue=false)]
+        [DataMember(Name = "photoUrls", EmitDefaultValue = false)]
         public List<string> PhotoUrls { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<Tag> Tags { get; set; }
 
 
@@ -128,7 +133,7 @@ namespace IO.Swagger.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -158,36 +163,36 @@ namespace IO.Swagger.Model
             if (input == null)
                 return false;
 
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
+                     this.Id.Equals(input.Id))
+                ) &&
                 (
                     this.Category == input.Category ||
                     (this.Category != null &&
-                    this.Category.Equals(input.Category))
-                ) && 
+                     this.Category.Equals(input.Category))
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
+                     this.Name.Equals(input.Name))
+                ) &&
                 (
                     this.PhotoUrls == input.PhotoUrls ||
                     this.PhotoUrls != null &&
                     this.PhotoUrls.SequenceEqual(input.PhotoUrls)
-                ) && 
+                ) &&
                 (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
-                ) && 
+                ) &&
                 (
                     this.Status == input.Status ||
                     (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                     this.Status.Equals(input.Status))
                 );
         }
 
@@ -221,10 +226,10 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext)
         {
             yield break;
         }
     }
-
 }

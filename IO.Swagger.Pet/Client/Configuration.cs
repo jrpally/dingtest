@@ -50,18 +50,20 @@ namespace IO.Swagger.Client
         /// </summary>
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
-            var status = (int)response.StatusCode;
+            var status = (int) response.StatusCode;
             if (status >= 400)
             {
                 return new ApiException(status,
                     $"Error calling {methodName}: {response.Content}",
                     response.Content);
             }
+
             if (status == 0)
             {
                 return new ApiException(status,
                     $"Error calling {methodName}: {response.ErrorMessage}", response.ErrorMessage);
             }
+
             return null;
         };
 
@@ -189,9 +191,8 @@ namespace IO.Swagger.Client
             int timeout = 100000,
             string userAgent = "Swagger-Codegen/1.0.0/csharp"
             // ReSharper restore UnusedParameter.Local
-            )
+        )
         {
-
         }
 
         /// <summary>
@@ -202,7 +203,6 @@ namespace IO.Swagger.Client
         // ReSharper disable once UnusedParameter.Local
         public Configuration(ApiClient apiClient)
         {
-
         }
 
         #endregion Constructors
@@ -211,6 +211,7 @@ namespace IO.Swagger.Client
         #region Properties
 
         private ApiClient _apiClient = null;
+
         /// <summary>
         /// Gets an instance of an ApiClient for this configuration
         /// </summary>
@@ -224,15 +225,19 @@ namespace IO.Swagger.Client
         }
 
         private String _basePath = null;
+
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath {
+        public virtual string BasePath
+        {
             get { return _basePath; }
-            set {
+            set
+            {
                 _basePath = value;
                 // pass-through to ApiClient if it's set.
-                if(_apiClient != null) {
+                if (_apiClient != null)
+                {
                     _apiClient.RestClient.BaseUrl = new Uri(_basePath);
                 }
             }
@@ -248,7 +253,6 @@ namespace IO.Swagger.Client
         /// </summary>
         public virtual int Timeout
         {
-            
             get { return ApiClient.RestClient.Timeout; }
             set { ApiClient.RestClient.Timeout = value; }
         }
@@ -279,9 +283,9 @@ namespace IO.Swagger.Client
         public string GetApiKeyWithPrefix(string apiKeyIdentifier)
         {
             var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
+            ApiKey.TryGetValue(apiKeyIdentifier, out apiKeyValue);
             var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
+            if (ApiKeyPrefix.TryGetValue(apiKeyIdentifier, out apiKeyPrefix))
                 return apiKeyPrefix + " " + apiKeyValue;
             else
                 return apiKeyValue;
@@ -361,7 +365,8 @@ namespace IO.Swagger.Client
         public virtual IDictionary<string, string> ApiKeyPrefix
         {
             get => _apiKeyPrefix;
-            set => _apiKeyPrefix = value ?? throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
+            set => _apiKeyPrefix =
+                value ?? throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
         }
 
         /// <summary>
@@ -377,6 +382,7 @@ namespace IO.Swagger.Client
                 {
                     throw new InvalidOperationException("ApiKey collection may not be null.");
                 }
+
                 _apiKey = value;
             }
         }
@@ -402,7 +408,7 @@ namespace IO.Swagger.Client
         /// <returns></returns>
         public ApiClient CreateApiClient()
         {
-            return new ApiClient(BasePath) { Configuration = this };
+            return new ApiClient(BasePath) {Configuration = this};
         }
 
 
@@ -413,7 +419,7 @@ namespace IO.Swagger.Client
         {
             String report = "C# SDK (IO.Swagger) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: 1.0.5\n";
             report += "    SDK Package Version: 1.0.0\n";
 

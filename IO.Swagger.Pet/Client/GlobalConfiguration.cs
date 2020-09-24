@@ -29,6 +29,5 @@ namespace IO.Swagger.Client
     /// </remarks>
     public partial class GlobalConfiguration : Configuration
     {
-
     }
 }

@@ -75,7 +75,7 @@ namespace IO.Swagger.Client
         /// <param name="basePath">The base path.</param>
         public ApiClient(String basePath = "https://petstore.swagger.io/v2")
         {
-           if (String.IsNullOrEmpty(basePath))
+            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
@@ -116,23 +116,23 @@ namespace IO.Swagger.Client
             var request = new RestRequest(path, method);
 
             // add path parameter, if any
-            foreach(var param in pathParams)
+            foreach (var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
             // add header parameter, if any
-            foreach(var param in headerParams)
+            foreach (var param in headerParams)
                 request.AddHeader(param.Key, param.Value);
 
             // add query parameter, if any
-            foreach(var param in queryParams)
+            foreach (var param in queryParams)
                 request.AddQueryParameter(param.Key, param.Value);
 
             // add form parameter, if any
-            foreach(var param in formParams)
+            foreach (var param in formParams)
                 request.AddParameter(param.Key, param.Value);
 
             // add file parameter, if any
-            foreach(var param in fileParams)
+            foreach (var param in fileParams)
             {
                 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
             }
@@ -169,7 +169,7 @@ namespace IO.Swagger.Client
                 pathParams, contentType);
 
             // set timeout
-            
+
             RestClient.Timeout = Configuration.Timeout;
             // set user agent
             RestClient.UserAgent = Configuration.UserAgent;
@@ -182,6 +182,7 @@ namespace IO.Swagger.Client
 
             return (Object) response;
         }
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -207,7 +208,7 @@ namespace IO.Swagger.Client
             InterceptRequest(request);
             var response = await RestClient.ExecuteTaskAsync(request);
             InterceptResponse(request, response);
-            return (Object)response;
+            return (Object) response;
         }
 
         /// <summary>
@@ -229,7 +230,7 @@ namespace IO.Swagger.Client
         public FileParameter ParameterToFile(string name, Stream stream)
         {
             if (stream is FileStream)
-                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
+                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream) stream).Name));
             else
                 return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
         }
@@ -248,26 +249,27 @@ namespace IO.Swagger.Client
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString (Configuration.DateTimeFormat);
+                return ((DateTime) obj).ToString(Configuration.DateTimeFormat);
             else if (obj is DateTimeOffset)
                 // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
+                return ((DateTimeOffset) obj).ToString(Configuration.DateTimeFormat);
             else if (obj is IList)
             {
                 var flattenedString = new StringBuilder();
-                foreach (var param in (IList)obj)
+                foreach (var param in (IList) obj)
                 {
                     if (flattenedString.Length > 0)
                         flattenedString.Append(",");
                     flattenedString.Append(param);
                 }
+
                 return flattenedString.ToString();
             }
             else
-                return Convert.ToString (obj);
+                return Convert.ToString(obj);
         }
 
         /// <summary>
@@ -298,19 +300,22 @@ namespace IO.Swagger.Client
                         var match = regex.Match(header.ToString());
                         if (match.Success)
                         {
-                            string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                            string fileName = filePath +
+                                              SanitizeFilename(match.Groups[1].Value.Replace("\"", "")
+                                                  .Replace("'", ""));
                             File.WriteAllBytes(fileName, response.RawBytes);
                             return new FileStream(fileName, FileMode.Open);
                         }
                     }
                 }
+
                 var stream = new MemoryStream(response.RawBytes);
                 return stream;
             }
 
             if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content,  null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
@@ -429,7 +434,7 @@ namespace IO.Swagger.Client
         /// <returns>Byte array</returns>
         public static byte[] ReadAsBytes(Stream inputStream)
         {
-            byte[] buf = new byte[16*1024];
+            byte[] buf = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int count;
@@ -437,6 +442,7 @@ namespace IO.Swagger.Client
                 {
                     ms.Write(buf, 0, count);
                 }
+
                 return ms.ToArray();
             }
         }
@@ -495,14 +501,16 @@ namespace IO.Swagger.Client
         /// <param name="name">Key name.</param>
         /// <param name="value">Value object.</param>
         /// <returns>A list of KeyValuePairs</returns>
-        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name,
+            object value)
         {
             var parameters = new List<KeyValuePair<string, string>>();
 
             if (IsCollection(value) && collectionFormat == "multi")
             {
                 var valueCollection = value as IEnumerable;
-                parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, ParameterToString(item)));
+                parameters.AddRange(from object item in valueCollection
+                    select new KeyValuePair<string, string>(name, ParameterToString(item)));
             }
             else
             {
